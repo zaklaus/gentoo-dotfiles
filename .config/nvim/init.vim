@@ -12,17 +12,32 @@ Plug 'dense-analysis/ale'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
+syntax enable
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set copyindent
+
+set number
+set cursorline
+set wildmenu
+set showmatch
+set laststatus=2
+set nobackup
+set noswapfile
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
 " don't use arrowkeys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" and here
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
 
 " additionals
 inoremap jj <Esc>
