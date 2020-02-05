@@ -9,8 +9,8 @@ plugins=(
 export PATH=$HOME/bin:/usr/local/go/bin:/usr/local/bin:$HOME/go/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
+export ZSH_THEME="gnzh"
 source $ZSH/oh-my-zsh.sh
-ZSH_THEME="gnzh"
 
 autoload -U colors && colors
 #PS1="┌─┤%*│%{$fg_bold[green]%}%n%{$fg_no_bold[green]%}@%m:%{$fg_bold[blue]%}%~
@@ -47,6 +47,10 @@ fortune
 
 if [ -f ~/.keys ]; then
 	. ~/.keys
+fi
+
+if [ -f ~/.aliases ]; then
+	. ~/.aliases
 fi
 
 function assh {
