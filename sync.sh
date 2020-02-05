@@ -16,7 +16,7 @@ copy() {
 copy_dir() {
 	echo "Copying folder $1 into $REPO/$1 ..."
 	mkdir -p $REPO/$1
-	rsync -r --exclude=.git $1 $REPO/$1
+	rsync -r --exclude=.git $1 $REPO/
 }
 
 # home config files
