@@ -1,0 +1,13 @@
+{
+  "chromium-browser.Chromium-browser" = {
+    StartMaximized = Yes;
+    AlwaysUserIcon = No;
+  };
+  xterm.XTerm = {
+    Icon = xterm.XTerm.xpm;
+  };
+  Navigator.Firefox = {
+    StartMaximized = Yes;
+    AlwaysUserIcon = No;
+  };
+}
