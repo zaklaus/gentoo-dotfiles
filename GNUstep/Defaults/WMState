@@ -58,6 +58,7 @@
     Lock = No;
     Command = "-";
   };
+  Applications = ();
   Drawers = ();
   Workspaces = (
     {
@@ -72,4 +73,5 @@
       Name = Main;
     }
   );
+  Workspace = Main;
 }

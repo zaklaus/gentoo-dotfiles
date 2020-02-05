@@ -10,7 +10,6 @@ export PATH=$HOME/bin:/usr/local/go/bin:/usr/local/bin:$HOME/go/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 source $ZSH/oh-my-zsh.sh
-fortune -a
 ZSH_THEME="gnzh"
 
 autoload -U colors && colors
@@ -27,13 +26,6 @@ SAVEHIST=10240000
 setopt appendhistory
 unsetopt beep
 bindkey -e
-
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' menu select=1
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename '/home/zak/.zshrc'
-
-autoload -Uz compinit && compinit
 
 # stuff
 
@@ -66,6 +58,3 @@ alias dog='pygmentize -g'
 function zemacs {
 	emacs -nw $@
 }
-
-# added by travis gem
-[ -f /home/zak/.travis/travis.sh ] && source /home/zak/.travis/travis.sh
