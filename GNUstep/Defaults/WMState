@@ -9,7 +9,7 @@
         AutoLaunch = No;
         Position = "0,0";
         Lock = Yes;
-        Command = "/usr/local/bin/WPrefs";
+        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
       },
       {
         Forced = No;
@@ -25,7 +25,7 @@
     );
     Lowered = Yes;
     Position = "-64,0";
-    Applications900 = (
+    Applications600 = (
       {
         Forced = No;
         Name = Logo.WMDock;
@@ -33,7 +33,7 @@
         AutoLaunch = No;
         Position = "0,0";
         Lock = Yes;
-        Command = "/usr/local/bin/WPrefs";
+        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
       },
       {
         Forced = No;

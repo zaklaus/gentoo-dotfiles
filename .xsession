@@ -6,7 +6,7 @@ PATH="$PATH:/usr/local/bin"
 # in the console window.
 #
 # tail -f "/home/zak"/.xsession-errors > /dev/console &
-
+[ -x /usr/local/bin/VBoxClient-all ] && /usr/local/bin/VBoxClient-all
 xrdb -merge .Xresources
 exec wmaker
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Copies various config files and folders to the repository
 
