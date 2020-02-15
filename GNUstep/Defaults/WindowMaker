@@ -32,8 +32,8 @@
   WindowRelaunchKey = None;
   WindowShortcut4Key = None;
   NoWindowOverDock = NO;
-  OmnipresentKey = None;
   WorkspaceBack = (solid, "#333340");
+  OmnipresentKey = None;
   LBCMaximizeKey = None;
   HighlightTextColor = "#000000";
   WindowShortcut9Key = None;

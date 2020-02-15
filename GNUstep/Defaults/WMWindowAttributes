@@ -7,7 +7,6 @@
     Icon = xterm.XTerm.xpm;
   };
   Navigator.Firefox = {
-    StartMaximized = Yes;
     AlwaysUserIcon = No;
   };
 }

@@ -1,6 +1,28 @@
 {
   Dock = {
     AutoRaiseLower = Yes;
+    Applications645 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = xterm.XTerm;
+        DropCommand = "xterm %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "xterm %s";
+        Command = "xterm -ls /usr/local/bin/zsh";
+      }
+    );
     Applications = (
       {
         Forced = No;
@@ -25,28 +47,6 @@
     );
     Lowered = Yes;
     Position = "-64,0";
-    Applications600 = (
-      {
-        Forced = No;
-        Name = Logo.WMDock;
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,0";
-        Lock = Yes;
-        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
-      },
-      {
-        Forced = No;
-        Name = xterm.XTerm;
-        DropCommand = "xterm %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,1";
-        Lock = No;
-        PasteCommand = "xterm %s";
-        Command = "xterm -ls /usr/local/bin/zsh";
-      }
-    );
   };
   Clip = {
     Forced = No;

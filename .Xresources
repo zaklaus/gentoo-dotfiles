@@ -1,3 +1,5 @@
 #include "/home/zak/Xresources-themes/nord.Xresources"
 
 XTerm*vt100.deleteIsDEL: false
+XTerm*metaSendsEscape: true
+
