@@ -1,28 +1,6 @@
 {
   Dock = {
     AutoRaiseLower = Yes;
-    Applications645 = (
-      {
-        Forced = No;
-        Name = Logo.WMDock;
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,0";
-        Lock = Yes;
-        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
-      },
-      {
-        Forced = No;
-        Name = xterm.XTerm;
-        DropCommand = "xterm %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,1";
-        Lock = No;
-        PasteCommand = "xterm %s";
-        Command = "xterm -ls /usr/local/bin/zsh";
-      }
-    );
     Applications = (
       {
         Forced = No;
@@ -43,6 +21,72 @@
         Lock = No;
         PasteCommand = "xterm %s";
         Command = "xterm -ls /usr/local/bin/zsh";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmclock %s";
+        Command = wmclock;
+      },
+      {
+        Forced = No;
+        Name = wmnd.wmnd;
+        DropCommand = "wmnd %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,7";
+        Lock = Yes;
+        PasteCommand = "wmnd %s";
+        Command = wmnd;
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = xterm.XTerm;
+        DropCommand = "xterm %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "xterm %s";
+        Command = "xterm -ls /usr/local/bin/zsh";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmclock %s";
+        Command = wmclock;
+      },
+      {
+        Forced = No;
+        Name = wmnd.wmnd;
+        DropCommand = "wmnd %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,7";
+        Lock = Yes;
+        PasteCommand = "wmnd %s";
+        Command = wmnd;
       }
     );
     Lowered = Yes;
