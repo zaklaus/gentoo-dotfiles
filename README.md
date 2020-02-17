@@ -51,4 +51,4 @@ Run `neovim` and type `:PlugInstall` to set up all plugins
 
 ## Set up tmux
 
-Run `tmux` and press CTRL+I to install all plugins
+Run `tmux` and press `\`+I` to install all plugins
