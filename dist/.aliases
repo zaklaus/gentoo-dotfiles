@@ -52,6 +52,7 @@ alias o2stat="vnstat -i enp7s0"
 alias cls="clear"
 alias nn="xdg-open"
 alias nh="sudo xdg-open"
+alias mx="tmux a"
 alias mapus="setxkbmap us && xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
 alias mapsk="setxkbmap -layout sk -variant qwerty && xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
 
