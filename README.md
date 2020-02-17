@@ -13,6 +13,7 @@ $ pkg install sudo git neovim python3 tmux htop zsh xorg gcc g++ clang clang++
 ## Set up the display manager
 
 See: [XDM docpage](https://www.freebsd.org/doc/handbook/x-xdm.html) and enable xdm on TTY 9
+
 Edit `/usr/local/etc/X11/xdm/Xsetup_0` and delete the line that executes `xconsole`, since it's not really required and persists after user login.
 
 ## Set up Virtualbox Guest Additions
