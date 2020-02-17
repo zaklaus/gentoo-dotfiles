@@ -1,0 +1,10 @@
+#!/bin/sh
+
+Op=`echo|dmenu -p Calculate: `
+Res=`Rscript -e "$Op"`
+Res=${Res#*] }
+Act=`printf "$Res \nCopy" |dmenu`
+if [ "$Act" == "Copy" ]; then
+    echo -n "$Res" | xsel -b
+fi
+
