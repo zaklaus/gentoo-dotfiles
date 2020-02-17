@@ -13,7 +13,7 @@ cd ..
 echo "Packaging dmenu..."
 cd dmenu
 gmake clean all
-cp dmenu dmenu_run $HOME/bin/
+cp dmenu dmenu_run dmenu_path stest $HOME/bin/
 cd ..
 
 # st
