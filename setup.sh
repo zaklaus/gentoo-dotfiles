@@ -24,5 +24,9 @@ cp -r $REPO/. $HOME/
 mkdir -p $HOME/bin
 $HOME/suckless/package.sh
 
+# Install Tmux Plugin Manager
+mkdir -p $HOME/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
 # Final changes
 echo "Done! Source .zshrc now and enjoy!"
