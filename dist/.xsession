@@ -1,0 +1,13 @@
+# Window Maker default X session startup script 
+
+PATH="$PATH:/usr/local/bin:$HOME/bin"
+
+# If you login from xdm, uncomment this to make error messages appear
+# in the console window.
+#
+# tail -f "/home/zak"/.xsession-errors > /dev/console &
+killall xconsole
+[ -x /usr/local/bin/VBoxClient-all ] && /usr/local/bin/VBoxClient-all
+xrdb -merge .Xresources
+exec dwm
+

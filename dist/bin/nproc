@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "$(sysctl hw.ncpu | awk '{print $2}')"
+

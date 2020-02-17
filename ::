@@ -2,10 +2,8 @@
 
 # Copies various config files and folders to the repository
 
-REPO=$(cd `dirname $0` && pwd)/dist
+REPO=$(cd `dirname $0` && pwd)
 cd $HOME
-
-mkdir -p $REPO
 
 echo "Repo location: $REPO"
 echo "Source location: $HOME"
@@ -13,11 +11,6 @@ echo "Source location: $HOME"
 copy() {
 	echo "Copying $1 into $REPO/$1..."
 	cp $1 $REPO/$1
-}
-
-copy_files() {
-	echo "Copying files $1 into $REPO/..."
-	cp -rf $1 $REPO/
 }
 
 copy_dir() {
@@ -32,10 +25,8 @@ copy .tmux.conf
 copy .aliases
 copy .xsession
 copy .Xresources
-copy_files "*.Xresources"
 
+copy_dir Xresources-themes
 copy_dir .config/nvim
 copy_dir suckless
-copy_dir bin
-
 
