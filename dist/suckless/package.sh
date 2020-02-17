@@ -23,4 +23,11 @@ gmake clean all
 cp st $HOME/bin/
 cd ..
 
+# slstatus
+echo "Packaging slstatus..."
+cd slstatus
+gmake clean all
+cp slstatus $HOME/bin/
+cd ..
+
 echo "Done!"

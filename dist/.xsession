@@ -9,5 +9,7 @@ PATH="$PATH:/usr/local/bin:$HOME/bin"
 killall xconsole
 [ -x /usr/local/bin/VBoxClient-all ] && /usr/local/bin/VBoxClient-all
 xrdb -merge .Xresources
+
+exec slstatus &
 exec dwm
 
