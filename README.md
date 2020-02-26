@@ -7,7 +7,7 @@ This README assumes you have a working FreeBSD environment already installed.
 ## Prerequisites
 
 ```sh
-$ pkg install sudo git neovim python3 tmux htop zsh xorg gcc g++ clang clang++ xsel-conrad r
+$ pkg install sudo git neovim python3 tmux htop zsh xorg gcc g++ clang clang++ xsel-conrad r bash gmake
 ```
 
 ## Set up the display manager
