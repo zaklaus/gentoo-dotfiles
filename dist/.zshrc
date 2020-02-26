@@ -50,7 +50,7 @@ export PAGER=less
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=8
 
-fortune
+fortune | cowsay
 
 if [ -f ~/.keys ]; then
 	. ~/.keys
