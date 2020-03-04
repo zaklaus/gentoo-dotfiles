@@ -60,11 +60,14 @@ static const char unknown_str[] = "n/a";
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
+ *
+ * echo                print out any text              NULL
  */
 static const struct arg args[] = {
 	/* function format          argument */
     { username, "%s",           NULL },
     { uid,      "(%s) | ",         NULL },
+    { echo, "PogChamp PepeHands papez programator | ",               NULL },
     { load_avg, "Load: %s | ",     NULL },
     { ram_free, "MEM: %s left | ", NULL },
     
