@@ -444,14 +444,10 @@ load(FILE *fp)
 			}
 
 			blen = strlen(buf);
-			if (!(s->lines[s->linecount] = strdup(buf)))
-				die("sent: Unable to strdup:");
-			if (s->lines[s->linecount][blen-1] == '\n')
-				s->lines[s->linecount][blen-1] = '\0';
-
-			/* mark as image slide if a line starts with @ */
-			if (s->lines[s->linecount][0] == '@')
-				s->embed = &s->lines[s->linecount][1];
+            if (!(s->lines[s->linecount] = strdup(buf)))
+                die("sent: Unable to strdup:");
+            if (s->lines[s->linecount][blen-1] == '\n')
+                s->lines[s->linecount][blen-1] = '\0';
 
 			/* set up colors for the presentation */
 			if (s->lines[s->linecount][0] == '!')
@@ -472,6 +468,7 @@ load(FILE *fp)
                     }
                     s->colors[s->colorcount++] = token;
                 }
+                continue;
             }
 			else if (s->lines[s->linecount][0] == '?')
             {
@@ -486,7 +483,11 @@ load(FILE *fp)
                 {
                     colors[colorcount++] = token;
                 }
+                continue;
             }
+			/* mark as image slide if a line starts with @ */
+			if (s->lines[s->linecount][0] == '@')
+				s->embed = &s->lines[s->linecount][1];
 
 			if (s->lines[s->linecount][0] == '\\')
 				memmove(s->lines[s->linecount], &s->lines[s->linecount][1], blen);

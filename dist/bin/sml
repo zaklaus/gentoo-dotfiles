@@ -1,0 +1,6 @@
+#!/bin/sh
+
+TMPNAM=/tmp/smu-tmp.html
+
+smu < $1 > $TMPNAM && links $TMPNAM && rm $TMPNAM
+
