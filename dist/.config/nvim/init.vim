@@ -82,3 +82,7 @@ let g:ycm_key_invoke_completion = ycm_trigger_key
 
 let g:ycm_key_list_select_completion = ['<TAB>', '<C-j>']
 inoremap <expr> ycm_trigger_key pumvisible() ? "<C-j>" : ycm_trigger_key;
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif

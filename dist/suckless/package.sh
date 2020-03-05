@@ -20,6 +20,7 @@ build() {
     build_module slstatus
     build_module farbfeld
     build_module sent
+    build_module tabbed
 }
 
 deploy() {

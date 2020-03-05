@@ -13,6 +13,7 @@ export EDITOR=nvim
 export LANG=en_US.UTF-8
 export TERM=screen-256color
 source $ZSH/oh-my-zsh.sh
+ulimit -c unlimited
 
 autoload -U colors && colors
 #PS1="┌─┤%*│%{$fg_bold[green]%}%n%{$fg_no_bold[green]%}@%m:%{$fg_bold[blue]%}%~
