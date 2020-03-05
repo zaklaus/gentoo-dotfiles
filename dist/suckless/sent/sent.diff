@@ -1,0 +1,311 @@
+Binary files /home/zak/origs/sent/.git/index and ./.git/index differ
+diff -ruN /home/zak/origs/sent/.git/logs/HEAD ./.git/logs/HEAD
+--- /home/zak/origs/sent/.git/logs/HEAD	2020-03-05 12:18:47.724751000 +0100
++++ ./.git/logs/HEAD	2020-03-05 00:15:18.405096000 +0100
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583407127 +0100	clone: from https://git.suckless.org/sent
++0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583363718 +0100	clone: from https://git.suckless.org/sent
+diff -ruN /home/zak/origs/sent/.git/logs/refs/heads/master ./.git/logs/refs/heads/master
+--- /home/zak/origs/sent/.git/logs/refs/heads/master	2020-03-05 12:18:47.724934000 +0100
++++ ./.git/logs/refs/heads/master	2020-03-05 00:15:18.405285000 +0100
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583407127 +0100	clone: from https://git.suckless.org/sent
++0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583363718 +0100	clone: from https://git.suckless.org/sent
+diff -ruN /home/zak/origs/sent/.git/logs/refs/remotes/origin/HEAD ./.git/logs/refs/remotes/origin/HEAD
+--- /home/zak/origs/sent/.git/logs/refs/remotes/origin/HEAD	2020-03-05 12:18:47.724099000 +0100
++++ ./.git/logs/refs/remotes/origin/HEAD	2020-03-05 00:15:18.404008000 +0100
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583407127 +0100	clone: from https://git.suckless.org/sent
++0000000000000000000000000000000000000000 72d33d463fed7ba271961a6f91cae1fed8faa454 Dominik Madarasz <zaklaus@outlook.com> 1583363718 +0100	clone: from https://git.suckless.org/sent
+Binary files /home/zak/origs/sent/.git/objects/pack/pack-aa1e4f95fab2c791db472e934c8141e98cc91f41.idx and ./.git/objects/pack/pack-aa1e4f95fab2c791db472e934c8141e98cc91f41.idx differ
+Binary files /home/zak/origs/sent/.git/objects/pack/pack-aa1e4f95fab2c791db472e934c8141e98cc91f41.pack and ./.git/objects/pack/pack-aa1e4f95fab2c791db472e934c8141e98cc91f41.pack differ
+Binary files /home/zak/origs/sent/.git/objects/pack/pack-dbd2622faa102b038392d815be9c09637a06f2aa.idx and ./.git/objects/pack/pack-dbd2622faa102b038392d815be9c09637a06f2aa.idx differ
+Binary files /home/zak/origs/sent/.git/objects/pack/pack-dbd2622faa102b038392d815be9c09637a06f2aa.pack and ./.git/objects/pack/pack-dbd2622faa102b038392d815be9c09637a06f2aa.pack differ
+diff -ruN /home/zak/origs/sent/Makefile ./Makefile
+--- /home/zak/origs/sent/Makefile	2020-03-05 12:18:47.735942000 +0100
++++ ./Makefile	2020-03-05 00:50:15.527845000 +0100
+@@ -44,14 +44,7 @@
+ 	@rm -rf sent-${VERSION}
+ 
+ install: all
+-	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
+-	@mkdir -p ${DESTDIR}${PREFIX}/bin
+-	@cp -f sent ${DESTDIR}${PREFIX}/bin
+-	@chmod 755 ${DESTDIR}${PREFIX}/bin/sent
+-	@echo installing manual page to ${DESTDIR}${MANPREFIX}/man1
+-	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
+-	@cp sent.1 ${DESTDIR}${MANPREFIX}/man1/sent.1
+-	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/sent.1
++	@cp -f sent ${DEPLOYDIR}/
+ 
+ uninstall:
+ 	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
+diff -ruN /home/zak/origs/sent/config.h ./config.h
+--- /home/zak/origs/sent/config.h	1970-01-01 01:00:00.000000000 +0100
++++ ./config.h	2020-03-05 11:10:47.795079000 +0100
+@@ -0,0 +1,56 @@
++/* See LICENSE file for copyright and license details. */
++
++static char *fontfallbacks[] = {
++	"dejavu sans",
++	"roboto",
++	"ubuntu",
++};
++#define NUMFONTSCALES 42
++#define FONTSZ(x) ((int)(10.0 * powf(1.1288, (x)))) /* x in [0, NUMFONTSCALES-1] */
++
++static char *colors[] = {
++	"#000000", /* foreground color */
++	"#FFFFFF", /* background color */
++};
++
++static const float linespacing = 1.4;
++
++/* how much screen estate is to be used at max for the content */
++static const float usablewidth = 0.75;
++static const float usableheight = 0.75;
++
++static Mousekey mshortcuts[] = {
++	/* button         function        argument */
++	{ Button1,        advance,        {.i = +1} },
++	{ Button3,        advance,        {.i = -1} },
++	{ Button4,        advance,        {.i = -1} },
++	{ Button5,        advance,        {.i = +1} },
++};
++
++static Shortcut shortcuts[] = {
++	/* keysym         function        argument */
++	{ XK_Escape,      quit,           {0} },
++	{ XK_q,           quit,           {0} },
++	{ XK_Right,       advance,        {.i = +1} },
++	{ XK_Left,        advance,        {.i = -1} },
++	{ XK_Return,      advance,        {.i = +1} },
++	{ XK_space,       advance,        {.i = +1} },
++	{ XK_BackSpace,   advance,        {.i = -1} },
++	{ XK_l,           advance,        {.i = +1} },
++	{ XK_h,           advance,        {.i = -1} },
++	{ XK_j,           advance,        {.i = +1} },
++	{ XK_k,           advance,        {.i = -1} },
++	{ XK_Down,        advance,        {.i = +1} },
++	{ XK_Up,          advance,        {.i = -1} },
++	{ XK_Next,        advance,        {.i = +1} },
++	{ XK_Prior,       advance,        {.i = -1} },
++	{ XK_n,           advance,        {.i = +1} },
++	{ XK_p,           advance,        {.i = -1} },
++	{ XK_r,           reload,         {0} },
++};
++
++static Filter filters[] = {
++	{ "\\.ff$", "cat" },
++	{ "\\.ff.bz2$", "bunzip2" },
++	{ "\\.[a-z0-9]+$", "2ff" },
++};
+diff -ruN /home/zak/origs/sent/config.mk ./config.mk
+--- /home/zak/origs/sent/config.mk	2020-03-05 12:18:47.736311000 +0100
++++ ./config.mk	2020-03-05 00:41:42.064882000 +0100
+@@ -1,23 +1,20 @@
+ # sent version
+ VERSION = 1
+ 
++include ../global.mk
++
+ # Customize below to fit your system
+ 
+ # paths
+ PREFIX = /usr/local
+-MANPREFIX = ${PREFIX}/share/man
++MANPREFIX = ${PREFIX}/man
+ 
+-X11INC = /usr/X11R6/include
+-X11LIB = /usr/X11R6/lib
++X11INC = ${PREFIX}/include
++X11LIB = ${PREFIX}/lib
+ 
+ # includes and libs
+-INCS = -I. -I/usr/include -I/usr/include/freetype2 -I${X11INC}
+-LIBS = -L/usr/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
+-# OpenBSD (uncomment)
+-#INCS = -I. -I${X11INC} -I${X11INC}/freetype2
+-# FreeBSD (uncomment)
+-#INCS = -I. -I/usr/local/include -I/usr/local/include/freetype2 -I${X11INC}
+-#LIBS = -L/usr/local/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
++INCS = -I. -I${PREFIX}/include -I${PREFIX}/include/freetype2 -I${X11INC}
++LIBS = -L${PREFIX}/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
+ 
+ # flags
+ CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600
+diff -ruN /home/zak/origs/sent/drw.c ./drw.c
+--- /home/zak/origs/sent/drw.c	2020-03-05 12:18:47.736732000 +0100
++++ ./drw.c	2020-03-05 10:27:53.778347000 +0100
+@@ -194,7 +194,7 @@
+ /* Wrapper to create color schemes. The caller has to call free(3) on the
+  * returned color scheme when done using it. */
+ Clr *
+-drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount)
++drw_scm_create(Drw *drw, char *clrnames[], size_t clrcount)
+ {
+ 	size_t i;
+ 	Clr *ret;
+diff -ruN /home/zak/origs/sent/drw.h ./drw.h
+--- /home/zak/origs/sent/drw.h	2020-03-05 12:18:47.736855000 +0100
++++ ./drw.h	2020-03-05 10:27:35.627698000 +0100
+@@ -39,7 +39,7 @@
+ 
+ /* Colorscheme abstraction */
+ void drw_clr_create(Drw *drw, Clr *dest, const char *clrname);
+-Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
++Clr *drw_scm_create(Drw *drw, char *clrnames[], size_t clrcount);
+ 
+ /* Cursor abstraction */
+ Cur *drw_cur_create(Drw *drw, int shape);
+Binary files /home/zak/origs/sent/drw.o and ./drw.o differ
+diff -ruN /home/zak/origs/sent/example ./example
+--- /home/zak/origs/sent/example	2020-03-05 12:18:47.736941000 +0100
++++ ./example	2020-03-05 11:49:48.966658000 +0100
+@@ -1,8 +1,10 @@
++?#ffff00 #232323
+ sent
+ 
+ Origin:
+      Takahashi
+ 
++!#ff0000 #343434
+ Why?
+ • PPTX sucks
+ • LATEX sucks
+@@ -12,6 +14,7 @@
+ terminal presentations
+ don't support images…
+ 
++!#000000 #ffffff
+ @nyan.png
+ this text will not be displayed, since the @ at the start of the first line
+ makes this paragraph an image slide.
+Binary files /home/zak/origs/sent/sent and ./sent differ
+diff -ruN /home/zak/origs/sent/sent.c ./sent.c
+--- /home/zak/origs/sent/sent.c	2020-03-05 12:18:47.737657000 +0100
++++ ./sent.c	2020-03-05 12:15:16.130962000 +0100
+@@ -50,7 +50,9 @@
+ 
+ typedef struct {
+ 	unsigned int linecount;
++	unsigned int colorcount;
+ 	char **lines;
++	char **colors;
+ 	Image *img;
+ 	char *embed;
+ } Slide;
+@@ -105,6 +107,7 @@
+ static void xhints();
+ static void xinit();
+ static void xloadfonts();
++static void xsetcolors(char **colors, unsigned int count);
+ 
+ static void bpress(XEvent *);
+ static void cmessage(XEvent *);
+@@ -407,8 +410,8 @@
+ load(FILE *fp)
+ {
+ 	static size_t size = 0;
+-	size_t blen, maxlines;
+-	char buf[BUFSIZ], *p;
++	size_t blen, maxlines, maxcolors, colorcount;
++	char buf[BUFSIZ], *p, *cp, *token;
+ 	Slide *s;
+ 
+ 	/* read each line from fp and add it to the item list */
+@@ -426,6 +429,8 @@
+ 
+ 		/* read one slide */
+ 		maxlines = 0;
++		maxcolors = 0;
++		colorcount = 0;
+ 		memset((s = &slides[slidecount]), 0, sizeof(Slide));
+ 		do {
+ 			if (buf[0] == '#')
+@@ -444,15 +449,50 @@
+ 			if (s->lines[s->linecount][blen-1] == '\n')
+ 				s->lines[s->linecount][blen-1] = '\0';
+ 
+-			/* mark as image slide if first line of a slide starts with @ */
+-			if (s->linecount == 0 && s->lines[0][0] == '@')
+-				s->embed = &s->lines[0][1];
++			/* mark as image slide if a line starts with @ */
++			if (s->lines[s->linecount][0] == '@')
++				s->embed = &s->lines[s->linecount][1];
+ 
++			/* set up colors for the presentation */
++			if (s->lines[s->linecount][0] == '!')
++			{
++			    s->colorcount = 0;
++                cp = &s->lines[s->linecount][1];
++                if (*cp != '#')
++                    die("sent: Invalid colors set!");
++                for (
++                        token = strtok(cp, " ");
++                        token;
++                        token = strtok(NULL, " "))
++                {
++                    if (s->colorcount >= maxcolors) {
++                        maxcolors = 2 * s->colorcount + 1;
++                        if (!(s->colors = realloc(s->colors, maxcolors * sizeof(s->colors[0]))))
++                            die("sent: Unable to reallocate %u bytes:", maxlines * sizeof(s->colors[0]));
++                    }
++                    s->colors[s->colorcount++] = token;
++                }
++            }
++			else if (s->lines[s->linecount][0] == '?')
++            {
++			    colorcount = 0;
++                cp = &s->lines[s->linecount][1];
++                if (*cp != '#')
++                    die("sent: Invalid colors set!");
++                for (
++                        token = strtok(cp, " ");
++                        token;
++                        token = strtok(NULL, " "))
++                {
++                    colors[colorcount++] = token;
++                }
++            }
++
+ 			if (s->lines[s->linecount][0] == '\\')
+ 				memmove(s->lines[s->linecount], &s->lines[s->linecount][1], blen);
+ 			s->linecount++;
+ 		} while ((p = fgets(buf, sizeof(buf), fp)) && strcmp(buf, "\n") != 0);
+-
++  
+ 		slidecount++;
+ 		if (!p)
+ 			break;
+@@ -518,6 +558,10 @@
+ {
+ 	unsigned int height, width, i;
+ 	Image *im = slides[idx].img;
++    if (slides[idx].colors)
++        xsetcolors(slides[idx].colors, slides[idx].colorcount);
++    else
++        xsetcolors(colors, 2);
+ 
+ 	getfontsize(&slides[idx], &width, &height);
+ 	XClearWindow(xw.dpy, xw.win);
+@@ -601,6 +645,16 @@
+ 	XMapWindow(xw.dpy, xw.win);
+ 	xhints();
+ 	XSync(xw.dpy, False);
++}
++
++void
++xsetcolors(char **colors, unsigned int count)
++{
++    if (sc) free(sc);
++
++	sc = drw_scm_create(d, colors, count);
++	drw_setscheme(d, sc);
++	XSetWindowBackground(xw.dpy, xw.win, sc[ColBg].pixel);
+ }
+ 
+ void
+Binary files /home/zak/origs/sent/sent.core and ./sent.core differ
+Binary files /home/zak/origs/sent/sent.o and ./sent.o differ
+Binary files /home/zak/origs/sent/util.o and ./util.o differ
