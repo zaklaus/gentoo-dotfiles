@@ -1,2 +1,0 @@
-1
-0	0	Open	Finish up sys\tem dependencies	Collec\t all sys\tem dependencies and provide an info inside README.md\n
