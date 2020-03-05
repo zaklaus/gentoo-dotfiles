@@ -1,0 +1,2 @@
+DEPLOYDIR = $(HOME)/suckless/deploy
+

@@ -1,6 +1,8 @@
 # slstatus version
 VERSION = 0
 
+include ../global.mk
+
 # customize below to fit your system
 
 # paths

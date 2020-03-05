@@ -4,39 +4,27 @@ cd $HOME/suckless/
 
 mkdir -p $HOME/suckless/deploy/
 
+build_module() {
+    echo "Packaging $1..."
+    cd $1
+    gmake clean install
+    cd ..
+}
+
 build() {
-	# dwm
-	echo "Packaging dwm..."
-	cd dwm
-	gmake clean all
-	cp dwm $HOME/suckless/deploy/
-	cd ..
-	
-	# dmenu
-	echo "Packaging dmenu..."
-	cd dmenu
-	gmake clean all
-	cp dmenu dmenu_run dmenu_path stest $HOME/suckless/deploy/
-	cd ..
-	
-	# st
-	echo "Packaging st..."
-	cd st
-	gmake clean all
-	cp st $HOME/suckless/deploy/
-	cd ..
-	
-	# slstatus
-	echo "Packaging slstatus..."
-	cd slstatus
-	gmake clean all
-	cp slstatus $HOME/suckless/deploy/
-	cd ..
+	rm $HOME/suckless/deploy/*
+
+    build_module dwm
+    build_module dmenu
+    build_module st
+    build_module slstatus
+    build_module farbfeld
+    build_module sent
 }
 
 deploy() {
     echo "Deploying suckless software..."
-    cp -f $HOME/suckless/deploy/* $HOME/bin/
+    cp -rf $HOME/suckless/deploy/* $HOME/bin/
 }
 
 case "$1" in 

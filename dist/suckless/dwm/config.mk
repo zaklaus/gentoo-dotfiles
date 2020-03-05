@@ -1,6 +1,8 @@
 # dwm version
 VERSION = 6.2
 
+include ../global.mk
+
 # Customize below to fit your system
 
 # paths
@@ -35,4 +37,4 @@ LDFLAGS  = ${LIBS}
 #LDFLAGS = ${LIBS}
 
 # compiler and linker
-CC = cc
+CC ?= cc

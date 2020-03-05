@@ -1,6 +1,8 @@
 # dmenu version
 VERSION = 4.9
 
+include ../global.mk
+
 # paths
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man

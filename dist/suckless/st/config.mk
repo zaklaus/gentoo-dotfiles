@@ -1,6 +1,8 @@
 # st version
 VERSION = 0.8.2
 
+include ../global.mk
+
 # Customize below to fit your system
 
 # paths
