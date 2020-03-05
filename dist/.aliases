@@ -60,6 +60,7 @@ alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 
 alias vim="nvim"
 alias vimdiff="nvim -d"
+alias rg="ranger"
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -p'                     # Preferred 'mkdir' implementation

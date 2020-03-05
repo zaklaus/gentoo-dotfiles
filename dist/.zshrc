@@ -50,6 +50,7 @@ export MANPAGER="/usr/local/bin/zsh -c \"col -bx | nvim -c 'set ft=man' -\"" #ht
 export PAGER=less
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=8
+export BUG_PROJECT=$HOME/todo.txt
 
 fortune | cowsay
 
