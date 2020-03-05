@@ -7,7 +7,7 @@ mkdir -p $HOME/suckless/deploy/
 build_module() {
     echo "Packaging $1..."
     cd $1
-    sudo make clean install
+    make clean install
     cd ..
 }
 

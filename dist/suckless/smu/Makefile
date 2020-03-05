@@ -43,7 +43,7 @@ install: all
 	@chmod 755 ${DEPLOYDIR}/smu
 	@echo installing manual page to ${DESTDIR}${MANPREFIX}/man1
 	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	@sed "s/VERSION/${VERSION}/g" < smu.1 > ${DESTDIR}${MANPREFIX}/man1/smu.1
+	sudo @sed "s/VERSION/${VERSION}/g" < smu.1 > ${DESTDIR}${MANPREFIX}/man1/smu.1
 	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/smu.1
 
 uninstall:
