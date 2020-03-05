@@ -41,7 +41,7 @@ autoload -Uz compinit && compinit
 if [ -n "$DISPLAY" ]; then
         export BROWSER="firefox"
 else
-        export BROWSER="elinks"
+        export BROWSER="elynx"
 fi
 
 export GREP_COLORS="ms=00;33:mc=00;33"
