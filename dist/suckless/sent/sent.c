@@ -50,7 +50,9 @@ typedef struct {
 
 typedef struct {
 	unsigned int linecount;
+	unsigned int colorcount;
 	char **lines;
+	char **colors;
 	Image *img;
 	char *embed;
 } Slide;
@@ -105,6 +107,7 @@ static void xdraw();
 static void xhints();
 static void xinit();
 static void xloadfonts();
+static void xsetcolors(char **colors, unsigned int count);
 
 static void bpress(XEvent *);
 static void cmessage(XEvent *);
@@ -407,8 +410,8 @@ void
 load(FILE *fp)
 {
 	static size_t size = 0;
-	size_t blen, maxlines;
-	char buf[BUFSIZ], *p;
+	size_t blen, maxlines, maxcolors, colorcount;
+	char buf[BUFSIZ], *p, *cp, *token;
 	Slide *s;
 
 	/* read each line from fp and add it to the item list */
@@ -426,6 +429,8 @@ load(FILE *fp)
 
 		/* read one slide */
 		maxlines = 0;
+		maxcolors = 0;
+		colorcount = 0;
 		memset((s = &slides[slidecount]), 0, sizeof(Slide));
 		do {
 			if (buf[0] == '#')
@@ -444,15 +449,50 @@ load(FILE *fp)
 			if (s->lines[s->linecount][blen-1] == '\n')
 				s->lines[s->linecount][blen-1] = '\0';
 
-			/* mark as image slide if first line of a slide starts with @ */
-			if (s->linecount == 0 && s->lines[0][0] == '@')
-				s->embed = &s->lines[0][1];
+			/* mark as image slide if a line starts with @ */
+			if (s->lines[s->linecount][0] == '@')
+				s->embed = &s->lines[s->linecount][1];
+
+			/* set up colors for the presentation */
+			if (s->lines[s->linecount][0] == '!')
+			{
+			    s->colorcount = 0;
+                cp = &s->lines[s->linecount][1];
+                if (*cp != '#')
+                    die("sent: Invalid colors set!");
+                for (
+                        token = strtok(cp, " ");
+                        token;
+                        token = strtok(NULL, " "))
+                {
+                    if (s->colorcount >= maxcolors) {
+                        maxcolors = 2 * s->colorcount + 1;
+                        if (!(s->colors = realloc(s->colors, maxcolors * sizeof(s->colors[0]))))
+                            die("sent: Unable to reallocate %u bytes:", maxlines * sizeof(s->colors[0]));
+                    }
+                    s->colors[s->colorcount++] = token;
+                }
+            }
+			else if (s->lines[s->linecount][0] == '?')
+            {
+			    colorcount = 0;
+                cp = &s->lines[s->linecount][1];
+                if (*cp != '#')
+                    die("sent: Invalid colors set!");
+                for (
+                        token = strtok(cp, " ");
+                        token;
+                        token = strtok(NULL, " "))
+                {
+                    colors[colorcount++] = token;
+                }
+            }
 
 			if (s->lines[s->linecount][0] == '\\')
 				memmove(s->lines[s->linecount], &s->lines[s->linecount][1], blen);
 			s->linecount++;
 		} while ((p = fgets(buf, sizeof(buf), fp)) && strcmp(buf, "\n") != 0);
-
+  
 		slidecount++;
 		if (!p)
 			break;
@@ -518,6 +558,10 @@ xdraw()
 {
 	unsigned int height, width, i;
 	Image *im = slides[idx].img;
+    if (slides[idx].colors)
+        xsetcolors(slides[idx].colors, slides[idx].colorcount);
+    else
+        xsetcolors(colors, 2);
 
 	getfontsize(&slides[idx], &width, &height);
 	XClearWindow(xw.dpy, xw.win);
@@ -601,6 +645,16 @@ xinit()
 	XMapWindow(xw.dpy, xw.win);
 	xhints();
 	XSync(xw.dpy, False);
+}
+
+void
+xsetcolors(char **colors, unsigned int count)
+{
+    if (sc) free(sc);
+
+	sc = drw_scm_create(d, colors, count);
+	drw_setscheme(d, sc);
+	XSetWindowBackground(xw.dpy, xw.win, sc[ColBg].pixel);
 }
 
 void

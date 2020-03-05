@@ -1,8 +1,10 @@
+?#ffff00 #232323
 sent
 
 Origin:
      Takahashi
 
+!#ff0000 #343434
 Why?
 • PPTX sucks
 • LATEX sucks
@@ -12,6 +14,7 @@ also:
 terminal presentations
 don't support images…
 
+!#000000 #ffffff
 @nyan.png
 this text will not be displayed, since the @ at the start of the first line
 makes this paragraph an image slide.

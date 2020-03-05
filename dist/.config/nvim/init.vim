@@ -45,6 +45,7 @@ noremap <Right> <NOP>
 
 " additionals
 inoremap jj <Esc>
+nnoremap <F8> :noh<CR>
 
 " nerdtree
 let NERDTreeShowHidden=1
