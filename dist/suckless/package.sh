@@ -7,7 +7,7 @@ mkdir -p $HOME/suckless/deploy/
 build_module() {
     echo "Packaging $1..."
     cd $1
-    gmake clean install
+    sudo make clean install
     cd ..
 }
 
@@ -21,6 +21,7 @@ build() {
     build_module farbfeld
     build_module sent
     build_module tabbed
+    build_module smu 
 }
 
 deploy() {
