@@ -782,11 +782,18 @@ int
 main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
+	char pngbuf[BUFSIZ], *png_export = NULL;
+	int pflag = 0;
+	int i;
 
 	ARGBEGIN {
 	case 'v':
 		fprintf(stderr, "sent-"VERSION"\n");
 		return 0;
+	case 'p':
+        pflag = 1;
+        png_export = EARGF(usage());
+        break;
 	default:
 		usage();
 	} ARGEND
@@ -799,6 +806,20 @@ main(int argc, char *argv[])
 	fclose(fp);
 
 	xinit();
+
+    if (pflag) {
+       if (!png_export)
+           die("sent: Provide output filename first!");
+       for (i=0; i<slidecount; i++) {
+           snprintf(pngbuf, sizeof(pngbuf), "%s_%d.png", png_export, i);
+           idx = i;
+           xdraw();
+           drw_png(pngbuf, d, xw.win, xw.w, xw.h); 
+       }
+       cleanup(0);
+       return 0;
+    }
+
 	run();
 
 	cleanup(0);

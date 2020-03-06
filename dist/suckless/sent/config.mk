@@ -13,8 +13,8 @@ X11INC = ${PREFIX}/include
 X11LIB = ${PREFIX}/lib
 
 # includes and libs
-INCS = -I. -I${PREFIX}/include -I${PREFIX}/include/freetype2 -I${X11INC}
-LIBS = -L${PREFIX}/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
+INCS = -I. -I${PREFIX}/include/cairo -I${PREFIX}/include -I${PREFIX}/include/freetype2 -I${X11INC}
+LIBS = -L${PREFIX}/lib -lc -lm -L${X11LIB} -lcairo -lXft -lfontconfig -lX11
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600

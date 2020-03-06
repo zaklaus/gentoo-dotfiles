@@ -4,6 +4,8 @@
 #include <string.h>
 #include <X11/Xlib.h>
 #include <X11/Xft/Xft.h>
+#include <cairo.h>
+#include <cairo-xlib.h>
 
 #include "drw.h"
 #include "util.h"
@@ -372,6 +374,27 @@ drw_map(Drw *drw, Window win, int x, int y, unsigned int w, unsigned int h)
 
 	XCopyArea(drw->dpy, drw->drawable, win, drw->gc, x, y, w, h, x, y);
 	XSync(drw->dpy, False);
+}
+
+void
+drw_png(char *filename, Drw *drw, Window win, unsigned int w, unsigned int h)
+{
+    cairo_surface_t *surf;
+
+    if (!drw || !filename)
+        return;
+    
+#ifdef CAIRO_HAS_XLIB_SURFACE
+    surf = cairo_xlib_surface_create(drw->dpy, drw->drawable, DefaultVisual(drw->dpy, drw->screen), w, h);
+
+    if (!surf)
+        die("sent: could not create surface!");
+
+    if ((cairo_surface_write_to_png(surf, filename)) != CAIRO_STATUS_SUCCESS)
+        die("sent: could not write cairo surface into png file!");
+#else
+    fputs(stderr, "sent: cairo has no X11 support!");
+#endif
 }
 
 unsigned int

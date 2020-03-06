@@ -25,7 +25,7 @@ set copyindent
 
 set number
 set mouse=a
-set cursorline
+"set cursorline
 set wildmenu
 set showmatch
 set laststatus=2
@@ -58,6 +58,11 @@ if (executable('ag'))
 endif
 
 nnoremap <C-P> :Files<CR>
+noremap ;; :%s:::g<Left><Left><Left>
+noremap ;' :%s:::cg<Left><Left><Left><Left>
+cmap ;\ \(\)<Left><Left>
+
+
 
 " emmet
 let g:user_emmet_settings = {
