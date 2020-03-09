@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	{ "Firefox",    NULL,       NULL,       1 << 1,       0,           -1 },
     { "presenter",  NULL,       "sent",     1 << 0,       1,           -1 },
     { "feh",        NULL,       "feh",      1 << 0,       1,           -1 },
+    { "tabbed",     NULL,       "tabbed",   1 << 0,       1,           -1 },
 };
 
 /* layout(s) */
