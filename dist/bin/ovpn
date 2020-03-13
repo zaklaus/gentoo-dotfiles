@@ -1,0 +1,12 @@
+#!/bin/sh
+
+SERVER="$1"
+
+if [ "$#" -eq 0 ]; then
+    echo "No server specified, choosing sk28..."
+    SERVER="sk28"
+fi
+
+cd $HOME/ovpn_udp/
+sudo openvpn-client "$SERVER.nordvpn.com.udp.ovpn"
+
