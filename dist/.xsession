@@ -9,5 +9,7 @@ xrdb -merge .Xresources
 [ -x $HOME/suckless/package.sh ] && $HOME/suckless/package.sh deploy
 
 exec slstatus &
+sh $HOME/.fehbg
+exec compton &
 exec dwm
 
