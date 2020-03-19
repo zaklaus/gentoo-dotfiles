@@ -32,6 +32,7 @@ copy .tmux.conf
 copy .aliases
 copy .xsession
 copy .Xresources
+copy .fehbg
 copy_files "*.Xresources"
 
 copy_dir .config/nvim
