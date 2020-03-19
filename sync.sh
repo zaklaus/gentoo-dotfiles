@@ -36,6 +36,7 @@ copy .fehbg
 copy_files "*.Xresources"
 
 copy_dir .config/nvim
+copy_dir .config/mpv
 copy_dir suckless
 copy_dir bin
 
