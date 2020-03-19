@@ -85,7 +85,7 @@ ytm(){youtube-dl -f 'bestaudio[ext=m4a]' -o - "ytsearch:$*" | mpv -}
 ytml(){youtube-dl -f 'bestaudio[ext=m4a]' -o - "$1" | mpv -}
 ytmdl(){youtube-dl -f 'bestaudio[ext=m4a]' "ytsearch:$*"}
 ytmdll(){youtube-dl -f 'bestaudio[ext=m4a]' "$1"}
-ytv(){youtube-dl -o - "ytsearch:$*" | mpv -}
+ytv(){youtube-dl -o - "ytsearch:$*" | mpv --force-seekable=yes -}
 ytvdl(){youtube-dl "ytsearch:$*"}
 yts(){CNT=$1; shift; youtube-dl -s --ignore-config --ignore-errors --skip-download --geo-bypass --youtube-skip-dash-manifest --get-id --get-title "ytsearch$CNT:$*" | sed '$!N;s/\n/ -- /'}
 ytf(){youtube-dl -F "ytsearch:$*"}
