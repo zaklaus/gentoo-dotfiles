@@ -33,6 +33,7 @@ copy .aliases
 copy .xsession
 copy .Xresources
 copy .fehbg
+copy wallpaper.jpg
 copy_files "*.Xresources"
 
 copy_dir .config/nvim
