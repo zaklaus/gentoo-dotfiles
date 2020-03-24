@@ -10,6 +10,6 @@ xrdb -merge .Xresources
 
 exec slstatus &
 sh $HOME/.fehbg
-exec compton &
+#exec compton &
 exec dwm
 
