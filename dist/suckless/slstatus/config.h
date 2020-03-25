@@ -67,7 +67,7 @@ static const struct arg args[] = {
 	/* function format          argument */
     { username, "%s",           NULL },
     { uid,      "(%s) | ",         NULL },
-    { echo, "PogChamp PepeHands papez programator | ",               NULL },
+    { echo, "PogChamp PepeHands Papez Programator | ",               NULL },
     { load_avg, "Load: %s | ",     NULL },
     { ram_free, "MEM: %s left | ", NULL },
     

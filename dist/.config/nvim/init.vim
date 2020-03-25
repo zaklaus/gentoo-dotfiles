@@ -58,6 +58,7 @@ if (executable('ag'))
 endif
 
 nnoremap <C-P> :Files<CR>
+nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 noremap ;; :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
 cmap ;\ \(\)<Left><Left>
