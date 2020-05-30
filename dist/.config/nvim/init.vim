@@ -31,6 +31,9 @@ set showmatch
 set laststatus=2
 set nobackup
 set noswapfile
+set clipboard+=unnamed
+set paste
+set go+=a
 
 set incsearch
 set hlsearch

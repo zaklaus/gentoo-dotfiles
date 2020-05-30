@@ -75,6 +75,7 @@ alias c='clear'                             # c:            Clear terminal displ
 alias cn='c; neofetch'			    # cn:	    Clear and display neofetch
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias vimgo='vim -u ~/.vimrc.go'
+alias qinks='links -g '
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 alias subl=subl3
 alias tvb='mpv --ytdl-format="bestvideo+bestaudio/best" $1'
