@@ -1,35 +1,19 @@
-# My FreeBSD dotfiles
+# My Gentoo dotfiles
 
-This README assumes you have a working FreeBSD environment already installed.
+This README assumes you have a working Gentoo environment already installed.
 
 # Setup
-
-## Prerequisites
-
-```sh
-$ pkg install sudo git neovim python3 tmux htop zsh xorg gcc g++ clang clang++ xsel-conrad r bash gmake taskwarrior mpv youtube_dl hermit-font
-```
-
-## Set up the display manager
-
-See: [XDM docpage](https://www.freebsd.org/doc/handbook/x-xdm.html) and enable xdm on TTY 9
-
-Edit `/usr/local/etc/X11/xdm/Xsetup_0` and delete the line that executes `xconsole`, since it's not really required and persists after user login.
-
-## Set up Virtualbox Guest Additions
-
-See [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/virtualization-guest-virtualbox.html)
 
 ## Clone the repo
 
 ```sh
-$ git clone https://github.com/zaklaus/bsd-dotfiles.git bsd-dotfiles
+$ git clone https://github.com/zaklaus/gentoo-dotfiles.git gentoo-dotfiles
 ```
 
 ## Execute the setup script
 
 ```sh
-$ bsd-dotfiles/setup.sh
+$ gentoo-dotfiles/setup.sh
 ```
 
 This will install Oh My Zsh and copy all config files to your home directory, as well as compile dwm, dmenu and st.
