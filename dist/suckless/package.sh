@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 cd $HOME/suckless/
 
@@ -26,7 +26,7 @@ build() {
 
 deploy() {
     echo "Deploying suckless software..."
-    cp -rf $HOME/suckless/deploy/* $HOME/bin/
+    cp -rf $HOME/suckless/deploy/* /opt/bin/
 }
 
 case "$1" in 

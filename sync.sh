@@ -27,10 +27,10 @@ copy_dir() {
 }
 
 # home config files
-copy .zshrc
+copy .bashrc
 copy .tmux.conf
+copy .xinitrc
 copy .aliases
-copy .xsession
 copy .Xresources
 copy .fehbg
 copy wallpaper.jpg
@@ -38,6 +38,5 @@ copy_files "*.Xresources"
 
 copy_dir .config/nvim
 copy_dir suckless
-copy_dir bin
 
 

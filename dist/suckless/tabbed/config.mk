@@ -6,19 +6,19 @@ include ../global.mk
 # Customize below to fit your system
 
 # paths
-PREFIX = /usr/local
+PREFIX = /usr
 MANPREFIX = ${PREFIX}/man
 
-X11INC = /usr/local/include
-X11LIB = /usr/local/lib
+X11INC = /usr/include
+X11LIB = /usr/lib64
 
 # freetype
 FREETYPELIBS = -lfontconfig -lXft
-FREETYPEINC = ${PREFIX}/include/freetype2
+FREETYPEINC = /usr/include/freetype2
 
 # includes and libs
 INCS = -I. -I/usr/include -I$(X11INC) -I${FREETYPEINC}
-LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 ${FREETYPELIBS}
+LIBS = -L/usr/lib64 -L${X11LIB} -lX11 ${FREETYPELIBS}
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE

@@ -1,4 +1,4 @@
 #include "base16-ocean-256.Xresources"
 
-XTerm*vt100.deleteIsDEL: false
 XTerm*metaSendsEscape: true
+

@@ -6,15 +6,15 @@ include ../global.mk
 # Customize below to fit your system
 
 # paths
-PREFIX = /usr/local
+PREFIX = /usr
 MANPREFIX = ${PREFIX}/man
 
 X11INC = ${PREFIX}/include
-X11LIB = ${PREFIX}/lib
+X11LIB = ${PREFIX}/lib64
 
 # includes and libs
 INCS = -I. -I${PREFIX}/include/cairo -I${PREFIX}/include -I${PREFIX}/include/freetype2 -I${X11INC}
-LIBS = -L${PREFIX}/lib -lc -lm -L${X11LIB} -lcairo -lXft -lfontconfig -lX11
+LIBS = -L${PREFIX}/lib64 -lc -lm -L${X11LIB} -lcairo -lXft -lfontconfig -lX11
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600

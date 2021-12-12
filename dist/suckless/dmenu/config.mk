@@ -4,11 +4,11 @@ VERSION = 4.9
 include ../global.mk
 
 # paths
-PREFIX = /usr/local
+#PREFIX = /usr
 MANPREFIX = $(PREFIX)/share/man
 
-X11INC = /usr/local/include
-X11LIB = /usr/local/lib
+X11INC = /usr/include
+X11LIB = /usr/lib64
 
 # Xinerama, comment if you don't want it
 XINERAMALIBS  = -lXinerama

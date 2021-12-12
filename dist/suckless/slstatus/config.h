@@ -70,6 +70,9 @@ static const struct arg args[] = {
     { echo, "PogChamp PepeHands Papez Programator | ",               NULL },
     { load_avg, "Load: %s | ",     NULL },
     { ram_free, "MEM: %s left | ", NULL },
+    { disk_used, "SSD: %s / ", "/" },
+    { disk_total, "%s ", "/" },
+    { disk_perc, "(%s%%) | ", "/" },
     
     { keymap,   "%s ",           NULL },
     { keyboard_indicators, "[ %s ] | ", "c?n?" },

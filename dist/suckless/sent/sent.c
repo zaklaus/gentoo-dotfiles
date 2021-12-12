@@ -129,6 +129,10 @@ static Clr *sc;
 static Fnt *fonts[NUMFONTSCALES];
 static int running = 1;
 
+/* Custom resolution */
+static int cx = -1;
+static int cy = -1;
+
 static void (*handler[LASTEvent])(XEvent *) = {
 	[ButtonPress] = bpress,
 	[ClientMessage] = cmessage,
@@ -659,7 +663,13 @@ xinit()
 		die("sent: Unable to open display");
 	xw.scr = XDefaultScreen(xw.dpy);
 	xw.vis = XDefaultVisual(xw.dpy, xw.scr);
-	resize(DisplayWidth(xw.dpy, xw.scr), DisplayHeight(xw.dpy, xw.scr));
+
+	if (cx != -1) {
+		resize(cx, cy);
+	}
+	else {
+		resize(DisplayWidth(xw.dpy, xw.scr), DisplayHeight(xw.dpy, xw.scr));
+	}
 
 	xw.attrs.bit_gravity = CenterGravity;
 	xw.attrs.event_mask = KeyPressMask | ExposureMask | StructureNotifyMask |
@@ -782,8 +792,9 @@ int
 main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
-	char pngbuf[BUFSIZ], *png_export = NULL;
+	char pngbuf[BUFSIZ], *png_export = NULL, *resolution = NULL;
 	int pflag = 0;
+	int rflag = 1;
 	int i;
 
 	ARGBEGIN {
@@ -794,6 +805,10 @@ main(int argc, char *argv[])
         pflag = 1;
         png_export = EARGF(usage());
         break;
+	case 'r':
+		rflag = 1;
+		resolution = EARGF(usage());
+		break;
 	default:
 		usage();
 	} ARGEND
@@ -805,6 +820,12 @@ main(int argc, char *argv[])
 	load(fp);
 	fclose(fp);
 
+	if (rflag) {
+		if (sscanf(resolution, "%dx%d", &cx, &cy) != 2) {
+			die("sent: Provide a valid resolution! (like 800x600)");
+		}
+	}
+
 	xinit();
 
     if (pflag) {
@@ -814,7 +835,7 @@ main(int argc, char *argv[])
            snprintf(pngbuf, sizeof(pngbuf), "%s_%d.png", png_export, i);
            idx = i;
            xdraw();
-           drw_png(pngbuf, d, xw.win, xw.w, xw.h); 
+           drw_png(pngbuf, d, xw.win, xw.w, xw.h);
        }
        cleanup(0);
        return 0;
