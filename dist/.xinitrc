@@ -2,7 +2,7 @@
 
 exec slstatus &
 sh $HOME/.fehbg
-exec vm-user-usid-wrapper &
-
+exec vm-user-suid-wrapper &
+sh $HOME/swap_kbd.sh
 exec dbus-launch --sh-syntax --exit-with-session dwm
 

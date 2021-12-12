@@ -14,7 +14,6 @@ alias gitfc="gitf && gitch"
 alias gita="git add"
 
 function gitc {
-    git add .
     if [ -z "$1" ]; then
         echo -n "Enter commit message: "
         read msg
@@ -22,7 +21,7 @@ function gitc {
         read desc
         git commit -m $msg -m $desc
     else
-        git commit -m $1
+        git commit -m "$@"
     fi
 }
 

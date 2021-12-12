@@ -33,6 +33,7 @@ copy .xinitrc
 copy .aliases
 copy .Xresources
 copy .fehbg
+copy swap_kbd.sh
 copy wallpaper.jpg
 copy_files "*.Xresources"
 
