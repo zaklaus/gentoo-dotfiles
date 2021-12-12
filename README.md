@@ -16,9 +16,7 @@ $ git clone https://github.com/zaklaus/gentoo-dotfiles.git gentoo-dotfiles
 $ gentoo-dotfiles/setup.sh
 ```
 
-This will install Oh My Zsh and copy all config files to your home directory, as well as compile dwm, dmenu and st.
-
-Simply `source` the `.zshrc` script to load up all settings
+Simply `source` the `.bashrc` script to load up all settings
 
 ## Set up NeoVIM
 
