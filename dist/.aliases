@@ -26,7 +26,7 @@ function gitc {
 }
 
 function gitcp {
-    gitc $1 $2 && gitp;
+    gitc "$@" && gitp;
 }
 
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset by %an' --abbrev-commit --date=relative"
