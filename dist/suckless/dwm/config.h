@@ -41,6 +41,7 @@ static const Rule rules[] = {
     { "presenter",  NULL,       "sent",     1 << 0,       1,           -1 },
     { "feh",        NULL,       "feh",      1 << 0,       1,           -1 },
     { "tabbed",     NULL,       "tabbed",   1 << 0,       1,           -1 },
+    { "eco2d",      NULL,       "eco2d",    1 << 0,       0,           -1 },
 };
 
 /* layout(s) */

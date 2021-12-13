@@ -794,7 +794,7 @@ main(int argc, char *argv[])
 	FILE *fp = NULL;
 	char pngbuf[BUFSIZ], *png_export = NULL, *resolution = NULL;
 	int pflag = 0;
-	int rflag = 1;
+	int rflag = 0;
 	int i;
 
 	ARGBEGIN {
