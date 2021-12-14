@@ -7,7 +7,7 @@ set smartindent
 set encoding=utf8
 set foldenable
 set foldmethod=manual
-set mouse=a
+" set mouse=a
 let g:airline_powerline_fonts = 0
 
 call plug#begin("~/.vim/plugged")

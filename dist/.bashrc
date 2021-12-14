@@ -16,8 +16,7 @@ fi
 
 
 # Put your fun stuff here.
-export HOME=/home/zak
-export PATH="$PATH;~/bin"
+export PATH="${PATH}:/home/zak/bin:"
 
 if [ -f ~/.keys ]; then
     . ~/.keys

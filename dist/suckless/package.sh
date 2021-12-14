@@ -26,7 +26,7 @@ build() {
 
 deploy() {
     echo "Deploying suckless software..."
-    cp -rf $HOME/suckless/deploy/* /opt/bin/
+    cp -rf $HOME/suckless/deploy/* $HOME/bin/
 }
 
 case "$1" in 

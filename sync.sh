@@ -34,6 +34,7 @@ copy .aliases
 copy .Xresources
 copy .fehbg
 copy swap_kbd.sh
+copy full_upgrade.sh
 copy wallpaper.jpg
 copy_files "*.Xresources"
 
