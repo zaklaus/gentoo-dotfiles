@@ -22,6 +22,7 @@ build() {
     build_module sent
     build_module tabbed
     build_module smu 
+    build_module surf
 }
 
 deploy() {
