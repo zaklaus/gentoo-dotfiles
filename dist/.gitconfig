@@ -1,0 +1,8 @@
+[user]
+	name = Dominik Madarasz
+	mail = zaklaus@outlook.com
+	email = zaklaus@outlook.com
+[init]
+	defaultBranch = master
+[core]
+	editor = vi

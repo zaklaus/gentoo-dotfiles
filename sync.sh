@@ -30,6 +30,9 @@ copy_dir() {
 copy .bashrc
 copy .tmux.conf
 copy .xinitrc
+copy .inputrc
+copy .dmrc
+copy .gitconfig
 copy .aliases
 copy .Xresources
 copy .fehbg
