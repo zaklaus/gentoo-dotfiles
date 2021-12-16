@@ -15,11 +15,7 @@ alias gita="git add"
 
 function gitc {
     if [ -z "$1" ]; then
-        echo -n "Enter commit message: "
-        read msg
-        echo -n "Enter commit desc: "
-        read desc
-        git commit -m $msg -m $desc
+        git commit
     else
         git commit -m "$@"
     fi
@@ -52,8 +48,8 @@ alias cls="clear"
 alias nn="xdg-open"
 alias nh="sudo xdg-open"
 alias mx="tmux a"
-alias mapus="setxkbmap us && xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
-alias mapsk="setxkbmap -layout sk -variant qwerty && xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
+alias mapus="setxkbmap us"
+alias mapsk="setxkbmap -layout sk -variant qwerty"
 
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset by %an' --abbrev-commit --date=relative"
 
@@ -78,3 +74,12 @@ alias qinks='links -g '
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 alias subl=subl3
 alias sx=startx
+
+function l { 
+    if [ -z "$1" ]; then 
+        ll
+    else 
+        lcd "$1"
+    fi 
+}
+
