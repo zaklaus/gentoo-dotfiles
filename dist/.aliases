@@ -77,4 +77,4 @@ alias vimgo='vim -u ~/.vimrc.go'
 alias qinks='links -g '
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 alias subl=subl3
-
+alias sx=startx
