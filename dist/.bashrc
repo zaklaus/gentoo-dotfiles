@@ -26,6 +26,10 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+export DISTCC_HOSTS="lab.zakto.pw:3632 dca:3632"
+export DISTCC_DIR="/var/tmp/portage/.distcc"
+export CCACHE_DIST="/var/cache/ccache"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

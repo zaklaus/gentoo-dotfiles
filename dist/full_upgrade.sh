@@ -2,5 +2,5 @@
 
 set -xe
 
-sudo emerge --sync && sudo emerge -avtDUu @world && sudo emerge --ask --depclean
+sudo emerge --sync && sudo emerge -avtDUu @world && sudo emerge -ac
 
