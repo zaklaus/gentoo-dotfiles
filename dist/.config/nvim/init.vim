@@ -23,6 +23,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'Shougo/deoplete.nvim'
 Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'mhartington/oceanic-next'
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 if (has("termguicolors"))
@@ -41,10 +43,12 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 let g:airline_theme='oceanicnext'
 
+let mapleader = ','
+
 nnoremap <leader>pv :Vex<CR>
-nnoremap <leader>pf :Files<CR>
+nnoremap <leader>pf :GFiles<CR>
 inoremap jk <esc>:w<CR>
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 
 inoremap <F9> <C-O>za
 nnoremap <F9> za
@@ -98,3 +102,14 @@ if executable('ccls')
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
       \ })
 endif
+
+" ClangFormat
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
