@@ -12,8 +12,8 @@ alias gitb="git branch"
 alias gitr="git remote"
 alias gitfc="gitf && gitch"
 alias gita="git add"
-alias gitrp="git add -p"
-alias gitap="git checkout -p"
+alias gitap="git add -p"
+alias gitrp="git checkout -p"
 
 function gitc {
     if [ -z "$1" ]; then
